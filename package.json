@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/ChappIO/gatsby-remark-mermaid#readme",
   "dependencies": {
-    "mermaid": "^8.0.0",
-    "puppeteer": "^1.12.2",
+    "mermaid": "^8.2.3",
+    "puppeteer": "^1.20.0",
     "unist-util-visit": "^1.4.0"
   }
 }
