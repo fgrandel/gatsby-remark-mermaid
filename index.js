@@ -1,6 +1,6 @@
 const path = require('path');
 const visit = require('unist-util-visit');
-const puppeteer = require('puppeteer');
+const chromium = require('chrome-aws-lambda');
 
 async function render(browser, definition, theme, viewport, mermaidOptions) {
     const page = await browser.newPage();
@@ -50,8 +50,15 @@ module.exports = async ({markdownAST},
         return;
     }
 
+    delete chromium.headless // Always use the AWS Chromium version even when working locally.
+    chromium.headless = true
+
     // Launch virtual browser
-    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    const browser = await chromium.puppeteer.launch({
+        args: chromium.args,
+        executablePath: await chromium.executablePath,
+        headless: chromium.headless
+    });
 
     await Promise.all(nodes.map(async node => {
         node.type = 'html';

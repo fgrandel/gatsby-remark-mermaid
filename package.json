@@ -25,8 +25,9 @@
   },
   "homepage": "https://github.com/ChappIO/gatsby-remark-mermaid#readme",
   "dependencies": {
+    "chrome-aws-lambda": "^2.0.2",
     "mermaid": "^8.0.0",
-    "puppeteer": "^1.12.2",
+    "puppeteer-core": "^2.0.0",
     "unist-util-visit": "^1.4.0"
   }
 }
